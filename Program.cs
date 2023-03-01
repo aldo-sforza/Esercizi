@@ -2,6 +2,7 @@
 using Esercizi.Caratteristiche_OOP.Ereditarietà.Shapes;
 using Esercizi.Collections;
 using Esercizi.Interfacce;
+using Esercizi.Patterns;
 using System;
 using System.Collections.Generic;
 
@@ -15,6 +16,15 @@ internal class Program
     };
 
     private static void Main(string[] args)
+    {
+        var repository = new FooRepository();
+        var foo =repository.Create();
+        var bar =repository.Create();
+        repository.SaveChanges();
+
+    }
+
+    private static void Main2(string[] args)
     {
         string cmd = string.Empty;
         do
