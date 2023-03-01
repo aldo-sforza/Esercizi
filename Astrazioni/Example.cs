@@ -1,4 +1,7 @@
-﻿using Esercizi.Astrazioni.Interfaccia;
+﻿using Esercizi.Astrazioni.ClasseAstratta;
+using Esercizi.Astrazioni.Interfaccia;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Esercizi.Interfacce
 {
@@ -27,5 +30,40 @@ namespace Esercizi.Interfacce
         {
             _logger.WriteWarning("forse è meglio fare attenzione");
         }
+    }
+
+
+    internal class ExampleMultiLogger
+    {
+        private readonly IEnumerable<ILogger> _loggers;
+
+        public ExampleMultiLogger(IEnumerable<ILogger> loggers)
+        {
+            _loggers = loggers;
+        }
+
+        public void DoSomethingGood()
+        {
+            //do something
+            foreach (var logger in _loggers)
+            {
+                logger.WriteInformation("tuttapost");
+            }
+        }
+
+        public void DoSomethingBad()
+        {
+            //do something
+            foreach (var logger in _loggers)
+                logger.WriteError("aiaiaiaia");
+        }
+
+        public void DoSomethingWarning()
+        {
+            foreach (var logger in _loggers)
+                logger.WriteWarning("forse è meglio fare attenzione");
+        }
+
+        
     }
 }

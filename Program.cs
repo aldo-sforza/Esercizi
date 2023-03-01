@@ -10,7 +10,8 @@ internal class Program
     private static Dictionary<string, Action> _commands = new()
     {
         { "exit",()=>{ } },
-        { "log",ExampleLogger }
+        { "log",ExampleLogger },
+        { "multilog",ExampleMultiLogger }
     };
 
     private static void Main(string[] args)
@@ -74,6 +75,18 @@ internal class Program
             example.DoSomethingBad();
         }
         Console.WriteLine();
+    }
+
+    private static void ExampleMultiLogger() 
+    {
+        List<ILogger> list = new List<ILogger>();
+        list.Add(new Esercizi.Astrazioni.Interfaccia.ConsoleLogger());
+        list.Add(new Esercizi.Astrazioni.Interfaccia.FileLogger());
+        var example = new ExampleMultiLogger(list);
+
+        example.DoSomethingGood();
+        example.DoSomethingWarning();
+        example.DoSomethingBad();
     }
     
     private static void OutputForShape()
