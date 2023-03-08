@@ -1,8 +1,9 @@
-﻿using Esercizi.Astrazioni.Interfaccia;
+﻿using Esercizi.ApplicationServices;
+using Esercizi.Astrazioni.Interfaccia;
 using Esercizi.Caratteristiche_OOP.Ereditarietà.Shapes;
 using Esercizi.Collections;
 using Esercizi.Interfacce;
-using Esercizi.Patterns;
+using Esercizi.Models;
 using System;
 using System.Collections.Generic;
 
@@ -17,11 +18,9 @@ internal class Program
 
     private static void Main(string[] args)
     {
-        var repository = new FooRepository();
-        var foo =repository.Create();
-        var bar =repository.Create();
-        repository.SaveChanges();
-
+        var roundRepository = new RoundRepository();
+        var roundApplicationService = 
+            new RoundApplicationService(roundRepository, roundRepository);
     }
 
     private static void Main2(string[] args)
@@ -39,7 +38,6 @@ internal class Program
             {
                 Console.WriteLine($"{cmd} è un comando sconosciuto");
             }
-
         }
         while (cmd != "exit");
 
@@ -87,7 +85,7 @@ internal class Program
         Console.WriteLine();
     }
 
-    private static void ExampleMultiLogger() 
+    private static void ExampleMultiLogger()
     {
         List<ILogger> list = new List<ILogger>();
         list.Add(new Esercizi.Astrazioni.Interfaccia.ConsoleLogger());
@@ -98,7 +96,7 @@ internal class Program
         example.DoSomethingWarning();
         example.DoSomethingBad();
     }
-    
+
     private static void OutputForShape()
     {
         /*
