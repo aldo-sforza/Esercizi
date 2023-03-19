@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-
-namespace Esercizi.Collections
+﻿namespace Collections
 {
     public class Collection
     {
