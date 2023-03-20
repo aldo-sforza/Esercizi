@@ -1,6 +1,8 @@
-﻿namespace Cars.Model
+﻿using Patterns.Repository;
+
+namespace Cars.Model
 {
-    public class Vehicle
+    public class Vehicle : Entity
     {
     }
 }
