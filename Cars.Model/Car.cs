@@ -7,6 +7,7 @@
         private readonly IEnumerable<Door> _doors;
 
         //has a ==> proprietà
+        public IEnumerable<Door> Doors => _doors;
         public IEnumerable<Wheel> Wheels => _wheels;
 
         public string Model { get; private set; }
@@ -14,6 +15,9 @@
         public Car(IEnumerable<Door> doors)
             : base()
         {
+            if (doors.Count() == 0)
+                throw new ArgumentException();
+
             if (doors.Count() > 5)
                 throw new ArgumentException();
 

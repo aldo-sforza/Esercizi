@@ -2,10 +2,10 @@
 {
     public class Collection
     {
-        public static IEnumerable<int> GetEvenNumbers(IEnumerable<int> numbersList)
+        public static IEnumerable<int> GetEvenNumbers(IEnumerable<int> numbers)
         {
             var evenNumbers = new List<int>();
-            foreach (int number in numbersList)
+            foreach (int number in numbers)
             {
                 if (number % 2 == 0 & number > 0)
                 {

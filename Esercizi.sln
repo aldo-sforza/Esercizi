@@ -17,9 +17,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Collections", "Collections\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDo.Model", "ToDo.Model\ToDo.Model.csproj", "{A96719B4-EFBF-49EB-9C94-6ABD29D717B4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console.Collections", "Console.Collections\Console.Collections.csproj", "{AEB7818A-8A59-463C-8D01-777142EBEE7C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Console.Collections", "Console.Collections\Console.Collections.csproj", "{AEB7818A-8A59-463C-8D01-777142EBEE7C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console.Shapes", "Console.Shapes\Console.Shapes.csproj", "{171F2B6E-B3CD-40BB-9C01-3C24CD5772F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Console.Shapes", "Console.Shapes\Console.Shapes.csproj", "{171F2B6E-B3CD-40BB-9C01-3C24CD5772F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console.Cars", "Console.Cars\Console.Cars.csproj", "{AD04D933-65B6-4C9E-93C6-E1DB1857F38C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{171F2B6E-B3CD-40BB-9C01-3C24CD5772F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{171F2B6E-B3CD-40BB-9C01-3C24CD5772F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{171F2B6E-B3CD-40BB-9C01-3C24CD5772F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD04D933-65B6-4C9E-93C6-E1DB1857F38C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD04D933-65B6-4C9E-93C6-E1DB1857F38C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD04D933-65B6-4C9E-93C6-E1DB1857F38C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD04D933-65B6-4C9E-93C6-E1DB1857F38C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
