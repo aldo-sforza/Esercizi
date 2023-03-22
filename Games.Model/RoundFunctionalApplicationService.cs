@@ -1,48 +1,89 @@
-﻿using Patterns.Repository;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Esercizi.Astrazioni.Interfaccia;
+using Patterns.Repository;
 
 namespace Games.Model
 {
     public static class Commands
     {
-        public record CreateNewRound();
+        public record CreateNewRound(string RoundId);
+        public record UpdateRoundNumber(string RoundId);
+        public record UpdateRoudDuration(string RoundId, TimeSpan Duration);
+
+        public record AssignOffender(string RoundId, Player Offender);
+        public record AssignDefendeer(string RoundId, Player Defender);
+        public record UpdateDenderHealth(string RoundId, int Damage);
     }
 
     public class RoundFunctionalApplicationService
     {
         private readonly IRepository<Round> _repository;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly ILogger _logger;
+
         public RoundFunctionalApplicationService(IRepository<Round> repository,
-                                       IUnitOfWork unitOfWork)
+                                       IUnitOfWork unitOfWork,
+                                       ILogger logger)
         {
             _repository = repository;
             _unitOfWork = unitOfWork;
+            _logger = logger;
         }
 
         public Round HandleCreate(Commands.CreateNewRound command)
         {
-            var round =_repository.Create();
+            var round = _repository.Create();
             _unitOfWork.SaveChanges();
             return round;
         }
+
         public void HandleUpdate(object command)
         {
+            Round round = new Round();
             switch (command)
             {
-                case Commands.CreateNewRound e:
-                    _repository.Create();
-                    _unitOfWork.SaveChanges();
+                case Commands.UpdateRoundNumber e:
+                    if (TryGet(e.RoundId, out round))
+                    {
+                        round.Number++;
+                        _unitOfWork.SaveChanges();
+                        _logger.WriteInformation($"round with id {e.RoundId} number: {round.Number}");
+                    }
+                    break;
+
+                case Commands.UpdateRoudDuration e:
+                    if (TryGet(e.RoundId, out round))
+                    {
+                        round.Duration = e.Duration;
+                        _unitOfWork.SaveChanges();
+                    }
+                    break;
+
+                case Commands.AssignOffender e:
+                    if (TryGet(e.RoundId, out round))
+                    {
+                        round.Offender = e.Offender;
+                        _unitOfWork.SaveChanges();
+                    }
+                    break;
+
+                case Commands.AssignDefendeer e:
+                    if (TryGet(e.RoundId, out round))
+                    {
+                        round.Defender = e.Defender;
+                        _unitOfWork.SaveChanges();
+                    }
+                    break;
+                case Commands.UpdateDenderHealth e:
+                    if (TryGet(e.RoundId, out round))
+                    {
+                        round.Defender.Health-= e.Damage;
+                        _unitOfWork.SaveChanges();
+                    }
                     break;
                 default:
                     break;
             }
-
         }
-
 
         private bool TryGet(string roundId, out Round round)
         {

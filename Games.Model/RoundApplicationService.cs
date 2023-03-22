@@ -1,4 +1,5 @@
-﻿using Games.Model;
+﻿using Esercizi.Astrazioni.Interfaccia;
+using Games.Model;
 using Patterns.Repository;
 
 namespace Esercizi.ApplicationServices
@@ -7,12 +8,15 @@ namespace Esercizi.ApplicationServices
     {
         private readonly IRepository<Round> _repository;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly ILogger _logger;
 
         public RoundApplicationService(IRepository<Round> repository,
-                                       IUnitOfWork unitOfWork)
+                                       IUnitOfWork unitOfWork,
+                                       ILogger logger)
         {
             _repository = repository;
             _unitOfWork = unitOfWork;
+            _logger = logger;
         }
 
         public Round NewRound()
