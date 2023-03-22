@@ -24,42 +24,58 @@ namespace Esercizi.ApplicationServices
 
         public void UpdateRoundNumber(string roundId)
         {
-            if (_repository.Exists(roundId))
+            if (TryGet(roundId, out Round round))
             {
-                var round = _repository.Load(roundId);
                 round.Number++;
                 _unitOfWork.SaveChanges();
-            }
+            };
         }
 
         public void UpdateDuration(string roundId, TimeSpan span)
         {
-            if (_repository.Exists(roundId))
+            if (TryGet(roundId, out Round round))
             {
-                var round = _repository.Load(roundId);
                 round.Duration = span;
                 _unitOfWork.SaveChanges();
-            }
+            };
         }
 
         public void AssignOffender(string roundId, Player offender)
         {
-            if (_repository.Exists(roundId))
+            if (TryGet(roundId, out Round round))
             {
-                var round = _repository.Load(roundId);
                 round.Offender = offender;
+                _unitOfWork.SaveChanges();
+            };
+        }
+
+        public void UpdateDefenderHealth(string roundId, int damage)
+        {
+            if (TryGet(roundId, out Round round))
+            {
+                round.Defender.Health -= damage;
                 _unitOfWork.SaveChanges();
             }
         }
 
-        public void AssignDefender(string roundId, Player defnder)
+        public void AssignDefender(string roundId, Player defender)
         {
+            if (TryGet(roundId, out Round round))
+            {
+                round.Defender = defender;
+                _unitOfWork.SaveChanges();
+            };
+        }
+
+        private bool TryGet(string roundId, out Round round)
+        {
+            round = null;
             if (_repository.Exists(roundId))
             {
-                var round = _repository.Load(roundId);
-                round.Defender = defnder;
-                _unitOfWork.SaveChanges();
+                round = _repository.Load(roundId);
+                return true;
             }
+            return false;
         }
     }
 }
