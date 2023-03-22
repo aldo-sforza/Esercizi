@@ -24,16 +24,42 @@ namespace Esercizi.ApplicationServices
 
         public void UpdateRoundNumber(string roundId)
         {
-            throw new NotImplementedException();
+            if (_repository.Exists(roundId))
+            {
+                var round = _repository.Load(roundId);
+                round.Number++;
+                _unitOfWork.SaveChanges();
+            }
         }
 
-        public void UpdateDuration(TimeSpan span)
-        { throw new NotImplementedException(); }
+        public void UpdateDuration(string roundId, TimeSpan span)
+        {
+            if (_repository.Exists(roundId))
+            {
+                var round = _repository.Load(roundId);
+                round.Duration = span;
+                _unitOfWork.SaveChanges();
+            }
+        }
 
-        public void AssignOffender(Player offender)
-        { throw new NotImplementedException(); }
+        public void AssignOffender(string roundId, Player offender)
+        {
+            if (_repository.Exists(roundId))
+            {
+                var round = _repository.Load(roundId);
+                round.Offender = offender;
+                _unitOfWork.SaveChanges();
+            }
+        }
 
-        public void AssignDefender(Player offender)
-        { throw new NotImplementedException(); }
+        public void AssignDefender(string roundId, Player defnder)
+        {
+            if (_repository.Exists(roundId))
+            {
+                var round = _repository.Load(roundId);
+                round.Defender = defnder;
+                _unitOfWork.SaveChanges();
+            }
+        }
     }
 }
