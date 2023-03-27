@@ -6,5 +6,11 @@ namespace Games.Model
     {
         public string Nickname { get; set; }
         public int Health { get; set; } = 100;
+
+        public Player(string id)
+            :base(id)
+        {
+
+        }
     }
 }

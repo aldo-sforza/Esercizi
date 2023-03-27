@@ -19,11 +19,10 @@ namespace Esercizi.ApplicationServices
             _logger = logger;
         }
 
-        public Round NewRound()
+        public void NewRound(string id)
         {
-            var round = _repository.Create();
+            _repository.Create(id);
             _unitOfWork.SaveChanges();
-            return round;
         }
 
         public void UpdateRoundNumber(string roundId)

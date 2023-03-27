@@ -8,7 +8,7 @@ namespace Cars.Model
         private const string FILE_NAME = "cars.txt";
         private readonly Dictionary<string, Car> _items = new Dictionary<string, Car>();
 
-        public Car Create()
+        public void Create(string id)
         {
             var doors = new List<Door>();
             doors.Add(new Door());
@@ -17,12 +17,10 @@ namespace Cars.Model
             doors.Add(new Door());
             doors.Add(new Door());
 
-            var car = new Car(doors);
+            var car = new Car(id,doors);
 
             _items.Add(car.Id, car);
 
-
-            return car;
         }
 
         public void Delete(string id)

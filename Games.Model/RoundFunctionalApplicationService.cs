@@ -14,9 +14,10 @@ namespace Games.Model
         public record UpdateDenderHealth(string RoundId, int Damage);
     }
 
+
     public class RoundFunctionalApplicationService
     {
-        private readonly IRepository<Round> _repository;
+        private readonly IRepository<Round> _roundRepository;
         private readonly IUnitOfWork _unitOfWork;
         private readonly ILogger _logger;
 
@@ -24,21 +25,20 @@ namespace Games.Model
                                        IUnitOfWork unitOfWork,
                                        ILogger logger)
         {
-            _repository = repository;
+            _roundRepository = repository;
             _unitOfWork = unitOfWork;
             _logger = logger;
         }
 
-        public Round HandleCreate(Commands.CreateNewRound command)
+        public void HandleCreate(Commands.CreateNewRound command)
         {
-            var round = _repository.Create();
+            _roundRepository.Create(command.RoundId);
             _unitOfWork.SaveChanges();
-            return round;
         }
 
         public void HandleUpdate(object command)
         {
-            Round round = new Round();
+            Round round = new Round("");
             switch (command)
             {
                 case Commands.UpdateRoundNumber e:
@@ -88,9 +88,9 @@ namespace Games.Model
         private bool TryGet(string roundId, out Round round)
         {
             round = null;
-            if (_repository.Exists(roundId))
+            if (_roundRepository.Exists(roundId))
             {
-                round = _repository.Load(roundId);
+                round = _roundRepository.Load(roundId);
                 return true;
             }
             return false;

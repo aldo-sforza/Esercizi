@@ -4,7 +4,8 @@
     {
         public Engine Engine { get; private set; }
 
-        public MotorVehicle()
+        public MotorVehicle(string id)
+            :base(id) 
         {
             Engine = new Engine();
         }

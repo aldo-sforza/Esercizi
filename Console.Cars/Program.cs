@@ -8,7 +8,7 @@ namespace Console.Cars
         {
             System.Console.WriteLine("Hello, Cars!");
             var carRepository = new CarRepository();
-            var car = carRepository.Create();
+            carRepository.Create("2ssed3");
             
             carRepository.SaveChanges();
 

@@ -2,11 +2,11 @@
 {
     public class Entity
     {
-        public string Id { get; protected set; }
+        public string Id { get; }
 
-        public Entity()
+        public Entity(string id)
         {
-            Id = Guid.NewGuid().ToString();
+            Id = id;
         }
     }
 }

@@ -16,9 +16,11 @@ namespace Console.Games
                                                                           repository,
                                                                           logger);
 
-            var round = applicationService.HandleCreate(new Commands.CreateNewRound(""));
-            applicationService.HandleUpdate(new Commands.UpdateRoundNumber(round.Id));
-            applicationService.HandleUpdate(new Commands.UpdateRoundNumber(round.Id));
+            var roundId = "1zxs31";
+            applicationService.HandleCreate(new Commands.CreateNewRound(roundId));
+
+            applicationService.HandleUpdate(new Commands.UpdateRoundNumber(roundId));
+            applicationService.HandleUpdate(new Commands.UpdateRoundNumber(roundId));
 
 
 

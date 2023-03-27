@@ -19,11 +19,10 @@ namespace Games.Model
             }
         }
 
-        public Round Create()
+        public void Create(string id)
         {
-            var round = new Round();
+            var round = new Round(id);
             _rounds.Add(round.Id, round);
-            return round;
         }
 
         public void Delete(string id)

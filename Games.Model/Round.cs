@@ -9,5 +9,11 @@ namespace Games.Model
 
         public Player Offender { get; set; }
         public Player Defender { get; set; }
+
+        public Round(string id)
+            :base(id) 
+        {
+            
+        }
     }
 }

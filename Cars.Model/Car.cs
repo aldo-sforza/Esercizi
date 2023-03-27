@@ -8,12 +8,13 @@
 
         //has a ==> proprietà
         public IEnumerable<Door> Doors => _doors;
+
         public IEnumerable<Wheel> Wheels => _wheels;
 
         public string Model { get; private set; }
 
-        public Car(IEnumerable<Door> doors)
-            : base()
+        public Car(string id, IEnumerable<Door> doors)
+            : base(id)
         {
             if (doors.Count() == 0)
                 throw new ArgumentException();

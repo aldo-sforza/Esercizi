@@ -4,7 +4,7 @@
 
     public class SUV : Car
     {
-        public SUV(IEnumerable<Door> doors) : base(doors)
+        public SUV(string id,IEnumerable<Door> doors) : base(id, doors)
         {
         }
     }
