@@ -31,7 +31,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{FEE0595C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calculator.Tests", "Calculator.Tests\Calculator.Tests.csproj", "{93BA0694-7139-4F00-9FC5-07E8E4CC4422}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Games.Tests", "Games.Tests\Games.Tests.csproj", "{167902FC-7133-4833-B62A-E0E15703945D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Games.Tests", "Games.Tests\Games.Tests.csproj", "{167902FC-7133-4833-B62A-E0E15703945D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shape.Tests", "Shape.Tests\Shape.Tests.csproj", "{800726E4-B203-45DD-9FFD-5FD7199A6392}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -95,6 +97,10 @@ Global
 		{167902FC-7133-4833-B62A-E0E15703945D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{167902FC-7133-4833-B62A-E0E15703945D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{167902FC-7133-4833-B62A-E0E15703945D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{800726E4-B203-45DD-9FFD-5FD7199A6392}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{800726E4-B203-45DD-9FFD-5FD7199A6392}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{800726E4-B203-45DD-9FFD-5FD7199A6392}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{800726E4-B203-45DD-9FFD-5FD7199A6392}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -102,6 +108,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{93BA0694-7139-4F00-9FC5-07E8E4CC4422} = {FEE0595C-C447-4027-8411-9C22C3B7F079}
 		{167902FC-7133-4833-B62A-E0E15703945D} = {FEE0595C-C447-4027-8411-9C22C3B7F079}
+		{800726E4-B203-45DD-9FFD-5FD7199A6392} = {FEE0595C-C447-4027-8411-9C22C3B7F079}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C807A35A-635A-4553-82B2-BA837399370B}

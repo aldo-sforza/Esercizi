@@ -47,7 +47,7 @@ namespace Calculator.Tests
         }
 
         [Theory]
-        [InlineData(5,2,2.5)]
+        [InlineData(5,2,2.5)] 
         [InlineData(6,2,3)]
         public void DivTwoNumberSuccess(int a1, int a2, decimal result)
         {
