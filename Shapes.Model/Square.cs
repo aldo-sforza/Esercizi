@@ -20,8 +20,8 @@
         /// Non dobbiamo ridefinire i metodi per il calcolo di perimetro e area
         /// perché sono i medesimi di quelli del rettangolo
         /// </remarks>
-        public Square(double edge)
-            : base(edge, edge)
+        public Square(double edge, string id)
+            : base(edge, edge, id)
         {
         }
 
