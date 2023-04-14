@@ -23,6 +23,21 @@ namespace Calculator.Tests
 
         }
 
+        [Theory]
+        [InlineData(1.5,2.5,4)]
+        [InlineData(2.90,2.34,5.24)]
+        [InlineData(2.124,3.752,5.876)]
+        public void AddTwoDoubleNumberSuccess(double a1, double a2, double result)
+        {
+            //arrange
+            var calculator = new Model.Calculator();
+
+            //act
+            var actualResult = calculator.Add(a1, a2);
+
+            //assert
+            actualResult.Should().BeApproximately(result,2f);
+        }
        
     }
 }

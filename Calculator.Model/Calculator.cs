@@ -6,5 +6,9 @@
         {
             return v1+v2;
         }
+
+        public double Add(double v1, double v2)
+            => v1 + v2;
+
     }
 }
