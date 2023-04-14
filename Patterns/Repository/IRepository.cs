@@ -1,4 +1,6 @@
-﻿namespace Patterns.Repository
+﻿
+
+namespace Patterns.Repository
 {
     public interface IRepository<T>
         where T : Entity
