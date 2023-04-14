@@ -8,6 +8,9 @@
         }
 
         public double AddDouble(double d1, double d2)
-            => d1 + d2; 
+            => d1 + d2;
+
+        public double Subtract(int s1, int s2)
+            => s1 - s2;
     }
 }
