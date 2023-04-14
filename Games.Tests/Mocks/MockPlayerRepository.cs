@@ -24,9 +24,9 @@ namespace Games.Tests.Mocks
             Verify(repository => repository.Create(It.IsAny<string>()), times);
         }
 
-        public void GivenExistIsCalledOnce()
+        public void GivenExistIsCalled(Times times)
         {
-            Verify(repository=> repository.Exists(It.IsAny<string>()),Times.Once());
+            Verify(repository=> repository.Exists(It.IsAny<string>()),times);
         }
     }
 
