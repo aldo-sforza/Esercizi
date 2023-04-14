@@ -2,8 +2,11 @@
 {
     internal interface IShapesQuery
     {
-        public Rectangle GetRectangle(string id);
-        public Square GetSquare(string id);
-        public Circle GetCircle(string id);
+        public bool TryGetRectangle(string id, out Rectangle rectangle);
+        public bool TryGetSquare(string id, out Square square);
+        public bool TryGetCircle(string id, out Circle circle);
+        public IEnumerable<Rectangle> GetRectangles();
+        public IEnumerable<Square> GetSquares();
+        public IEnumerable<Circle> GetCircles(); 
     }
 }
