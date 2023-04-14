@@ -7,7 +7,8 @@ namespace Console.Shapes
         static void Main(string[] args)
         {
             System.Console.WriteLine("Playing with shapes");
-            OutputForShape();
+            var shapeRepository = new ShapeRepository();
+
         }
 
         private static void OutputForShape()
