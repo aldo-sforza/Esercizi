@@ -44,7 +44,7 @@ namespace Shapes.Model
         {
             var filter = new Circle(1, "filter");
             if (!_shapes[id].GetType().Equals(filter.GetType()))
-                throw new ArgumentException();
+                return null;
             else
                 return (Circle)_shapes[id];
         }
@@ -53,7 +53,7 @@ namespace Shapes.Model
         {
             var filter = new Rectangle(2, 1, "filter");
             if (!_shapes[id].GetType().Equals(filter.GetType()))
-                throw new ArgumentException();
+                return null;
             else
                 return (Rectangle)_shapes[id];
         }
@@ -62,7 +62,7 @@ namespace Shapes.Model
         {
             var filter = new Square(1, "filter");
             if (!_shapes[id].GetType().Equals(filter.GetType()))
-                throw new ArgumentException();
+                return null;
             else
                 return (Square)_shapes[id];
         }

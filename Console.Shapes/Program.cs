@@ -23,9 +23,9 @@ namespace Console.Shapes
 
             //grazie al polimorfismo( un rettangolo, un quadrato, un cerchio sono figure geometriche, cioè estendono Shape)
             //allora posso aggiungerli alla lista
-            shapes.Add(new Rectangle(2, 3.7));
-            shapes.Add(new Circle(4.6));
-            shapes.Add(new Square(1));
+            //shapes.Add(new Rectangle(2, 3.7));
+            //shapes.Add(new Circle(4.6));
+            //shapes.Add(new Square(1));
 
             //adesso sono interessato a leggere le informazioni delle figure geometriche
             //quindi ciclo su ogni elemento di shapes (la mia lista di figure geometriche)
