@@ -6,5 +6,8 @@
         {
             return v1+v2;
         }
+
+        public double AddDouble(double d1, double d2)
+            => d1 + d2; 
     }
 }
