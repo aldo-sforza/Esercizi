@@ -29,7 +29,8 @@ namespace Shapes.Model
         ///     * validare tali parametri
         ///     * salvare i parametri in variabili di classe
         /// </remarks>
-        public Circle(double radius)
+        public Circle(string id,double radius)
+            : base(id)
         {
             if (radius <= 0)
                 throw new ArgumentOutOfRangeException(nameof(radius), "radius cannot be 0 or less");

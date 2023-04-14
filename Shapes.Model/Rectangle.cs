@@ -42,7 +42,8 @@ namespace Shapes.Model
         ///     * validare tali parametri
         ///     * salvare i parametri in variabili di classe
         /// </remarks>
-        public Rectangle(double width, double height)
+        public Rectangle(string id,double width, double height)
+            :base(id)
         {
             if (width <= 0)
             {
