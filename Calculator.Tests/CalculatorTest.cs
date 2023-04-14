@@ -23,6 +23,21 @@ namespace Calculator.Tests
 
         }
 
+        [Theory]
+        [InlineData(1,2,3)]
+        [InlineData(2,2,4)]
+        [InlineData(2,3,5)]
+        public void SubtractOfwonumbersuccess(int a1, int a2, int result)
+        {
+            //arrange
+            var calculator = new Model.Calculator();
+            
+            //act
+            int actualResult = calculator.Sub(a1,a2);
+
+            //assert
+            actualResult.Should().Be(result);
+        }
        
     }
 }
