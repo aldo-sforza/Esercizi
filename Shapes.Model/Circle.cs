@@ -16,6 +16,7 @@ namespace Shapes.Model
         //valore può essere modificato solo all'interno del costruttore
         private readonly double _radius;
 
+
         #endregion variabili
 
         #region costruttori
@@ -29,7 +30,8 @@ namespace Shapes.Model
         ///     * validare tali parametri
         ///     * salvare i parametri in variabili di classe
         /// </remarks>
-        public Circle(double radius)
+        public Circle(string id, double radius)
+            : base(id)
         {
             if (radius <= 0)
                 throw new ArgumentOutOfRangeException(nameof(radius), "radius cannot be 0 or less");
