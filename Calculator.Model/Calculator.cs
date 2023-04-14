@@ -9,5 +9,7 @@
 
 
         public double Add(double v1, double v2) => v1+v2;
+
+        public double Subtract(int v1, int v2) => v1 - v2;
     }
 }
