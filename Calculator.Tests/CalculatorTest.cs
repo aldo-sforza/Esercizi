@@ -20,9 +20,6 @@ namespace Calculator.Tests
 
             //assert
             actualResult.Should().Be(result);
-
         }
-
-       
     }
 }
