@@ -33,7 +33,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calculator.Tests", "Calcula
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Games.Tests", "Games.Tests\Games.Tests.csproj", "{167902FC-7133-4833-B62A-E0E15703945D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shape.Tests", "Shape.Tests\Shape.Tests.csproj", "{800726E4-B203-45DD-9FFD-5FD7199A6392}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shapes.Tests", "Shape.Tests\Shapes.Tests.csproj", "{800726E4-B203-45DD-9FFD-5FD7199A6392}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
