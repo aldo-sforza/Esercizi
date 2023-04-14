@@ -1,4 +1,5 @@
-﻿namespace Shapes.Model
+﻿using Patterns.Repository;
+namespace Shapes.Model
 {
     /// <summary>
     /// Questa classe rappresenta il concetto di figura geometrica.
@@ -16,8 +17,12 @@
     ///
     ///
     /// </summary>
-    public abstract class Shape
+    public abstract class Shape : Entity
     {
+        protected Shape(string id) : base(id)
+        {
+        }
+
         /// <summary>
         /// Calcola il perimetro della figura geometrica
         /// </summary>
