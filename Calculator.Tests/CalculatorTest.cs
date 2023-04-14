@@ -1,5 +1,6 @@
 ﻿using Xunit;
 using FluentAssertions;
+using System.Xml.Schema;
 
 namespace Calculator.Tests
 {
@@ -22,6 +23,20 @@ namespace Calculator.Tests
             actualResult.Should().Be(result);
 
         }
+
+        [Theory]
+        [InlineData(1,2,3)]
+        [InlineData(2,2,4)]
+        [InlineData(2,3,5)]
+
+        public void SubstractTwoNumberSuccess(int a1, int a2, int result)
+        {
+            var calculator = new Model.Calculator();
+            var actualResult = calculator.Subtract(a1,a2);
+            actualResult.Should().Be(result);
+        }
+
+       
 
        
     }
