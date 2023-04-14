@@ -2,12 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Shapes.Model
 {
-    public class ShapeRepository : IRepository<Shape>, IUnitOfWork
+    public class ShapeRepository : IRepository<Shape>, IUnitOfWork, IShapeQuery
     {
         public void Create(string id)
         {
