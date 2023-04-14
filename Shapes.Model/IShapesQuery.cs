@@ -1,6 +1,6 @@
 ﻿namespace Shapes.Model
 {
-    internal interface IShapeQuery
+    internal interface IShapesQuery
     {
         public Rectangle GetRectangle(string id);
         public Square GetSquare(string id);
