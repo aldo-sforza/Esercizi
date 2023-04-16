@@ -28,7 +28,7 @@ namespace Shapes.Tests.Mocks
             => Verify(shapeRepository => shapeRepository.CreateSquare(It.IsAny<string>(), It.IsAny<double>()), times);
         public void GivenCreateShapeRectangleTimes(Times times)
             => Verify(shapeRepository => shapeRepository.CreateRectangle(It.IsAny<string>(), It.IsAny<double>(), It.IsAny<double>()), times);
-        public void GivenIdCalledTimes(Times times)
+        public void GivenExistsCalledTimes(Times times)
                 => Verify(shapeRepository => shapeRepository.Exists(It.IsAny<string>()), times);
     }
 }

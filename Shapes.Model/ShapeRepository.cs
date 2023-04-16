@@ -15,22 +15,44 @@ namespace Shapes.Model
     {
         private readonly Dictionary<string, Shape> _shapes = new();
 
-        public void CreateCircle(string id, double radius) 
-            => _shapes.Add(id, new Circle(id, radius));
+        public void CreateCircle(string id, double radius)
+        {
+            if(Exists(id))
+                _shapes.Add(id, new Circle(id, radius));
+        }
+            
 
         public void CreateRectangle(string id, double width, double height)
-            => _shapes.Add(id, new Rectangle(id, width, height));
+        {
+            if (Exists(id))
+                _shapes.Add(id, new Rectangle(id, width, height));
+        }
+
         public void CreateSquare(string id, double edge)
-            => _shapes.Add(id, new Square(id, edge));
+        {
+            if (Exists(id))
+                _shapes.Add(id, new Square(id, edge));
+        }
 
         public void Delete(string id)
-            => throw new NotImplementedException();
+        {
+            if(Exists(id))
+                _shapes.Remove(id);
+        }
 
         public bool Exists(string id)
-            => _shapes.ContainsKey(id);
+        {
+            if (_shapes.ContainsKey(id))
+                return true;
+            throw new ArgumentException($"id: {id} already exists");
+        } 
 
         public Shape Load(string id)
-           => throw new NotImplementedException();
+        {
+            if(Exists(id))
+                return _shapes[id];
+            return null;
+        }
 
     }
 }
