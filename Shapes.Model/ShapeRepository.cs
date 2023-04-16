@@ -25,6 +25,9 @@ namespace Shapes.Model
     }
     public interface IShapeQuery : IUnitOfWork
     {
+        IEnumerable<Circle> GetCircles();
+        IEnumerable<Rectangle> GetRectangles();
+        IEnumerable<Square> GetSquares();
     }
     public class ShapeRepository : IRepository<RealShape>, IShapeQuery
     {
@@ -55,6 +58,21 @@ namespace Shapes.Model
         public bool Exists(string id)
         {
             return _shapes.ContainsKey(id);
+        }
+
+        public IEnumerable<Circle> GetCircles()
+        {
+            return _shapes.Values.OfType<Circle>();
+        }
+
+        public IEnumerable<Rectangle> GetRectangles()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Square> GetSquares()
+        {
+            throw new NotImplementedException();
         }
 
         public RealShape Load(string id)

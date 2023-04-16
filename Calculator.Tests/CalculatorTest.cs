@@ -1,5 +1,5 @@
-﻿using Xunit;
-using FluentAssertions;
+﻿using FluentAssertions;
+using Xunit;
 
 namespace Calculator.Tests
 {
@@ -14,14 +14,13 @@ namespace Calculator.Tests
         {
             //arrange
             var calculator = new Model.Calculator();
-
             //act
             var actualResult = calculator.Add(a1, a2);
-
             //assert
             actualResult.Should().Be(result);
 
         }
+
 
         [Theory]
         [InlineData(1.1, 2.2, 3.3)]
@@ -49,7 +48,7 @@ namespace Calculator.Tests
             var calculator = new Model.Calculator();
 
             //act
-            int actualResult = calculator.Substract(a1, a2);
+            int actualResult = calculator.Subtract(a1, a2);
 
             //assert
             actualResult.Should().Be(result);
