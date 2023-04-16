@@ -8,15 +8,19 @@ namespace Shapes.Tests.Mocks
         : Mock<IShapeRepository>
     {
         public void GivenIdExist()
-        {
-            Setup(shaperepository => shaperepository.Exists(It.IsAny<string>()))
-                .Returns(true);
-        }
+            => Setup(shapeRepository => shapeRepository.Exists(It.IsAny<string>())).Returns(true);
+
         public void GivenIdNotExist()
-        {
-            Setup(shaperepository => shaperepository.Exists(It.IsAny<string>()))
-                .Returns(false);
-        }
+            => Setup(shapeRepository => shapeRepository.Exists(It.IsAny<string>())).Returns(false);
+
+        public void GivenInvalidCircleParameters()
+            => Setup(shapeRepository => shapeRepository.CreateCircle(It.IsAny<string>(), It.IsAny<double>())).Throws(new ArgumentOutOfRangeException());
+
+        public void GivenInvalidSquareParameters()
+            => Setup(shapeRepository => shapeRepository.CreateSquare(It.IsAny<string>(), It.IsAny<double>())).Throws(new ArgumentOutOfRangeException());
+
+        public void GivenInvalidRectangleParameters()
+            => Setup(shapeRepository => shapeRepository.CreateRectangle(It.IsAny<string>(), It.IsAny<double>(), It.IsAny<double>())).Throws(new ArgumentOutOfRangeException());
 
         public void GivenCreateShapeCircleTimes(Times times)
             => Verify(shapeRepository => shapeRepository.CreateCircle(It.IsAny<string>(), It.IsAny<double>()), times);

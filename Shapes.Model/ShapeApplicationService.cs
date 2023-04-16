@@ -22,7 +22,7 @@ namespace Shapes.Model
             {
                 case Commands.CreateCircle c:
                     if(!_shapeRepository.Exists(c.id))
-                        _shapeRepository.CreateCircle(c.id, c.radius);
+                        _shapeRepository.CreateCircle(c.id, c.radius);                        
                     else
                         throw new ArgumentException($"id {c.id} Exist");
                     break;
