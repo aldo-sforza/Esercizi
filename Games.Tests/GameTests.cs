@@ -34,7 +34,7 @@ namespace Games.Tests
         public void HandleCreateFailBecauseIdAlreadyExists()
         {
             var id = "123";
-            _repository.PlayerDoesExist(id);
+            _repository.GivenPlayerDoesExist();
 
             var playerApplicationService =
                 new PlayerFunctionalApplicationService(_repository.Object,

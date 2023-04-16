@@ -26,7 +26,7 @@ namespace Games.Tests
             playerApplicationService.HandleCreate(id);
 
             //assert
-            _repository.GivenExistIsCalledOnce();
+            _repository.GivenExistIsCalled(Times.Once());
             _repository.GivenCreateIsCalled(Times.Once());
             _playerUnitOfWork.GivenSaveChangesIsCalled(Times.Once());
             _logger.GivenWriteInformationIsCalled(Times.Once());
@@ -50,7 +50,7 @@ namespace Games.Tests
 
                 ex.Should().BeOfType<InvalidOperationException>();
             }
-            _repository.GivenExistIsCalledOnce();
+            _repository.GivenExistIsCalled(Times.Once());
             _repository.GivenCreateIsCalled(Times.Never());
             _playerUnitOfWork.GivenSaveChangesIsCalled(Times.Never());
             _logger.GivenWriteInformationIsCalled(Times.Never());

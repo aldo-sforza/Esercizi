@@ -5,11 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Patterns.Repository
+namespace Shapes.Model.Repository
 {
     public interface IShapeRepository
     {
-        void Create(object command);
+        void CreateSquare(string id, double edge);
+        void CreateRectangle(string id, double width, double height);
+        void CreateCircle(string id, double radius);
 
         Shape Load(string id);
 
