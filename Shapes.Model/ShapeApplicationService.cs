@@ -21,16 +21,22 @@ namespace Shapes.Model
             switch (command)
             {
                 case Commands.CreateCircle c:
-                    _shapeRepository.Exists(c.id);
-                    _shapeRepository.CreateCircle(c.id, c.radius);
+                    if(!_shapeRepository.Exists(c.id))
+                        _shapeRepository.CreateCircle(c.id, c.radius);
+                    else
+                        throw new ArgumentException($"id {c.id} Exist");
                     break;
                 case Commands.CreateSquare s:
-                    _shapeRepository.Exists(s.id);
-                    _shapeRepository.CreateSquare(s.id, s.edge);
+                    if(!_shapeRepository.Exists(s.id))
+                        _shapeRepository.CreateSquare(s.id, s.edge);
+                    else
+                        throw new ArgumentException($"id {s.id} Exist");
                     break;
                 case Commands.CreateRectangle r:
-                    _shapeRepository.Exists(r.id);
-                    _shapeRepository.CreateRectangle(r.id, r.width, r.height);
+                    if(!_shapeRepository.Exists(r.id))
+                        _shapeRepository.CreateRectangle(r.id, r.width, r.height);
+                    else
+                        throw new ArgumentException($"id {r.id} Exist");
                     break;
                 default:
                     throw new ArgumentException($"Command {command} is not valid");
