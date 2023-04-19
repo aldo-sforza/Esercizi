@@ -1,4 +1,4 @@
-﻿using Patterns.Repository;
+﻿using Shapes.Model.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,47 +7,27 @@ using System.Threading.Tasks;
 
 namespace Shapes.Model
 {
-    public class RealShape : Shape
-    {
-        public RealShape(string id) : base(id)
-        {
-        }
-
-        public override double CalculatePerimeter()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override double CalculateSurface()
-        {
-            throw new NotImplementedException();
-        }
-    }
-    public interface IShapeQuery : IUnitOfWork
-    {
-        IEnumerable<Circle> GetCircles();
-        IEnumerable<Rectangle> GetRectangles();
-        IEnumerable<Square> GetSquares();
-    }
-    public class ShapeRepository : IRepository<RealShape>, IShapeQuery
+    public class ShapeRepository : IShapeRepository<Shape>
     {
         private const string FILE_NAME = "shapes.txt";
-        private readonly Dictionary<string, RealShape> _shapes = new();
+        private readonly Dictionary<string, Shape> _shapes = new();
 
-        public ShapeRepository()
+        public void CreateCircle(double radius)
         {
-            var folder = AppDomain.CurrentDomain.BaseDirectory;
-            var fullPath = System.IO.Path.Combine(folder, FILE_NAME);
-            if (File.Exists(fullPath))
-            {
-                var content = File.ReadAllText(fullPath);
-                _shapes = System.Text.Json.JsonSerializer.Deserialize<Dictionary<string, RealShape>>(content);
-            }
+            Shape circle = new Circle(radius);
+            _shapes.Add(circle.Id, circle);
         }
-        public void Create(string id)
+
+        public void CreateRectangle(double width, double height)
         {
-            var shape = new RealShape(id);
-            _shapes.Add(shape.Id, shape);
+            Shape rectangle = new Rectangle(width, height);
+            _shapes.Add(rectangle.Id, rectangle);
+        }
+
+        public void CreateSquare(double edge)
+        {
+            Shape square = new Square(edge);
+            _shapes.Add(square.Id, square);
         }
 
         public void Delete(string id)
@@ -60,35 +40,9 @@ namespace Shapes.Model
             return _shapes.ContainsKey(id);
         }
 
-        public IEnumerable<Circle> GetCircles()
+        public Shape Load(string id)
         {
-            return _shapes.Values.OfType<Circle>();
-        }
-
-        public IEnumerable<Rectangle> GetRectangles()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Square> GetSquares()
-        {
-            throw new NotImplementedException();
-        }
-
-        public RealShape Load(string id)
-        {
-            if (_shapes.ContainsKey(id))
-                return _shapes[id];
-
-            return null;
-        }
-
-        public void SaveChanges()
-        {
-            var folder = AppDomain.CurrentDomain.BaseDirectory;
-            var fullPath = System.IO.Path.Combine(folder, FILE_NAME);
-            var content = System.Text.Json.JsonSerializer.Serialize(_shapes);
-            System.IO.File.WriteAllText(fullPath, content);
+            return _shapes[id];
         }
     }
 }

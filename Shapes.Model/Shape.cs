@@ -17,10 +17,12 @@ namespace Shapes.Model
     ///
     ///
     /// </summary>
-    public abstract class Shape : Entity
+    public abstract class Shape
     {
-        protected Shape(string id) : base(id)
+        public string Id { get; }
+        public Shape()
         {
+            Id = Guid.NewGuid().ToString();
         }
 
         /// <summary>
