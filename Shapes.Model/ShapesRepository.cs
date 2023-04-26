@@ -50,7 +50,7 @@ namespace Shapes.Model
         public bool TryGetCircle(string id, out Circle circle)
         {
             circle = null;
-            if (!_shapes[id].GetType().Equals(typeof(Circle)))
+            if (_shapes[id].GetType().Equals(typeof(Circle)))
             {
                 circle = (Circle)_shapes[id];
                 return true; 
@@ -64,7 +64,7 @@ namespace Shapes.Model
         public bool TryGetRectangle(string id, out Rectangle rectangle)
         {
             rectangle = null;
-            if (!_shapes[id].GetType().Equals(typeof(Circle)))
+            if (_shapes[id].GetType().Equals(typeof(Rectangle)))
             {
                 rectangle = (Rectangle)_shapes[id];
                 return true;
@@ -78,7 +78,7 @@ namespace Shapes.Model
         public bool TryGetSquare(string id, out Square square)
         {
             square = null;
-            if (!_shapes[id].GetType().Equals(typeof(Circle)))
+            if (_shapes[id].GetType().Equals(typeof(Square)))
             {
                 square = (Square)_shapes[id];
                 return true;

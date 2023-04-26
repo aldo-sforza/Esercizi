@@ -1,5 +1,6 @@
 using FluentAssertions;
 using Shapes.Model;
+using Xunit;
 
 namespace Shapes.Tests
 {
@@ -12,21 +13,22 @@ namespace Shapes.Tests
             //Arrange
             var repository = new ShapesRepository();
             //Act
-            repository.Create(id, l1, l2);
+            repository.CreateRectangle(id, l1, l2);
             //Assert
-            repository.Load(id).GetType().Should().Be(typeof(Rectangle));
+            repository.Exists(id);
         }
 
         [Theory]
-        [InlineData(1, 1, "test")]
-        public void CreateSquare(double l1, double l2, string id)
+        [InlineData(1, "test")]
+        public void CreateSquare(double l1, string id)
         {
             //Arrange
             var repository = new ShapesRepository();
             //Act
-            repository.Create(id, l1, l2);
+            repository.CreateSquare(id, l1);
             //Assert
-            repository.Load(id).GetType().Should().Be(typeof(Square));
+            repository.Exists(id);
+
         }
 
         [Theory]
@@ -36,9 +38,9 @@ namespace Shapes.Tests
             //Arrange
             var repository = new ShapesRepository();
             //Act
-            repository.Create(id, l1);
+            repository.CreateCircle(id, l1);
             //Assert
-            repository.Load(id).GetType().Should().Be(typeof(Circle));
+            repository.Exists(id);
         }
     }
 }

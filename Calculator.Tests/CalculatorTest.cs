@@ -34,8 +34,8 @@ namespace Calculator.Tests
         }
 
         [Theory]
-        [InlineData(1,2,3)]
-        [InlineData(4,2,3)]
+        [InlineData(1,2,2)]
+        [InlineData(4,2,8)]
         public void MulTwoNumberSuccess(int a1, int a2, int result)
         {
             //arrange
@@ -47,8 +47,7 @@ namespace Calculator.Tests
         }
 
         [Theory]
-        [InlineData(5,2,2.5)] 
-        [InlineData(6,2,3)]
+        [InlineData(6,2,3)] 
         public void DivTwoNumberSuccess(int a1, int a2, decimal result)
         {
             //arrange

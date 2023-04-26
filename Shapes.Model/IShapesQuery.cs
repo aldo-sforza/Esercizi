@@ -1,6 +1,6 @@
 ﻿namespace Shapes.Model
 {
-    internal interface IShapesQuery
+    public interface IShapesQuery
     {
         public bool TryGetRectangle(string id, out Rectangle rectangle);
         public bool TryGetSquare(string id, out Square square);
